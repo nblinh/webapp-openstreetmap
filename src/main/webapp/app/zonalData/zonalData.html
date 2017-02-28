@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+<div style="float:right; width:80%" ng-init="init()" >
+        <select style="width:200px" ng-model="attributeNameIndex" ng-options="idx as attributeName for (idx, attributeName) in attributeNames"
+                ng-change="changeParam()"></select>
+
+    <div style="height: 100%;" id="mapid"></div>
+</div>
+
+</body>
+</html>

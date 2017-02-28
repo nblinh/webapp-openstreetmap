@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+<div style="float:right; width:80%" ng-init="init()" >
+    <div style="height:37px;">
+        <select style="width:150px;display:inline-block;" ng-model="purposeIndex" ng-options="idx as purpose for (idx, purpose) in purposes"
+                ng-change="changeParam()"></select>
+        <select id="modeTransport" class="js-example-basic-multiple" style="width:600px;display:inline-block;height:37px;"
+                ng-model="selectModes" ng-options="idx as mode for (idx, mode) in modes" multiple="multiple" ng-change="test()"></select>
+    </div>
+    <div style="height: 100%;" id="mapid"></div>
+</div>
+
+</body>
+<style>
+  .select2-container .select2-search--inline .select2-search__field{
+  	box-sizing:border-box;
+  	border:none;
+  	font-size:100%;
+  	margin-top:0px;
+  	padding:0;
+  	height:37px;
+  }
+  .select2-container .select2-selection--multiple{
+  	box-sizing:border-box;
+  	cursor:pointer;
+  	display:block;
+  	min-height:37px;
+  	height:37px;
+  }
+
+  .select2-results__option:nth-child(1) { color: Blue; }
+  .select2-results__option:nth-child(2) { color: Chartreuse; }
+  .select2-results__option:nth-child(3) { color: Crimson; }
+  .select2-results__option:nth-child(4) { color: Cyan; }
+  .select2-results__option:nth-child(5) { color: DarkGreen; }
+  .select2-results__option:nth-child(6) { color: HotPink; }
+  .select2-results__option:nth-child(7) { color: Lime; }
+  .select2-results__option:nth-child(8) { color: Orange; }
+  .select2-results__option:nth-child(9) { color: Red; }
+  .select2-results__option:nth-child(10) { color: Yellow; }
+
+
+  /*.select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(1) { background: Blue; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(2) { background: Chartreuse; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(3) { background: Crimson; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(4) { background: Cyan; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(5) { background: DarkGreen; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(6) { background: HotPink; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(7) { background: Lime; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(8) { background: Orange; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(9) { background: Red; }
+  .select2-container--default .select2-selection--multiple .select2-selection__choice:nth-child(10) { background: Yellow; }*/
+  </style>
+</html>

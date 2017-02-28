@@ -1,0 +1,65 @@
+<div ng-init="init()" ng-controller = "menuController">
+    <div>
+        <span style="background-color:lightgrey ;">Zonings</span>
+    </div>
+
+    <div style="padding-left:0px;" data-angular-treeview="true" data-tree-model="tree" data-tree-id="tree1"
+         data-node-id="id" data-node-label="name" data-node-children="enfants" >
+    </div>
+
+    <button class="accordion">Zonal data</button>
+    <div class="panel">
+        <ul class="menu-nav">
+            <li ng-repeat="zonalData in zonalDatas" onclick="$(this).addClass('active').siblings().removeClass('active');">
+                <a ng-click="getZonalData(zonalData)">{{zonalData}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <button class="accordion">Generation projections</button>
+    <div class="panel">
+        <ul class="menu-nav">
+            <li ng-repeat="projection in projections" onclick="$(this).addClass('active').siblings().removeClass('active');">
+                <a ng-click="getProjection(projection)">{{projection}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <button class="accordion">Travel times</button>
+    <div class="panel">
+        <ul class="menu-nav">
+            <li ng-repeat="interZonalData in interZonalDatas" onclick="$(this).addClass('active').siblings().removeClass('active');">
+                <a ng-click="getTravelTime(interZonalData)">{{interZonalData}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <button class="accordion">OD matrices</button>
+    <div class="panel">
+        <ul class="menu-nav">
+            <li ng-repeat="travelData in travelDatas" onclick="$(this).addClass('active').siblings().removeClass('active');">
+                <a ng-click="getTravelData(travelData)">{{travelData}}</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    var acc = document.getElementsByClassName("accordion");
+    var panel = $(".panel");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            var nexSibling = this.nextElementSibling;
+
+            for (j = 0; j < panel.length; j++) {
+                if(panel[j]!=this&&panel[j]!=nexSibling){
+                    panel[j].style.display = "none";
+                }
+            }
+            nexSibling.style.display = "block";
+        }
+    }
+</script>

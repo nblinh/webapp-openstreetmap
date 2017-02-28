@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="assets/jquery/jquery.js"></script>
+
+    <script src="assets/angularjs/angular.min.js"></script>
+    <script src="assets/angularjs/angular-route.min.js"></script>
+    <script src="assets/angularjs/angular-resource.min.js"></script>
+
+    <!-- block ui-->
+    <link rel="stylesheet" href="assets/angularjs/angular-block-ui.min.css"/>
+    <script src="assets/angularjs/angular-block-ui.min.js"></script>
+
+    <script src="assets/foundation/foundation.min.js"></script>
+    <link rel="stylesheet" href="assets/foundation/foundation.min.css" />
+
+    <script src="assets/select2/select2.min.js"></script>
+    <link rel="stylesheet" href="assets/select2/select2.min.css" />
+
+    <!-- root controller-->
+    <script src="app/rootController.js"></script>
+    <script src="app/app.js"></script>
+
+    <!-- menu-->
+    <script src="app/menu/menuController.js"></script>
+    <script src="app/menu/menubarController.js"></script>
+
+    <!-- zoning-->
+    <script src="app/zoning/zoningController.js"></script>
+    <script src="app/zoning/zoningModel.js"></script>
+
+    <!-- zonalData-->
+    <script src="app/zonalData/zonalDataController.js"></script>
+
+    <!-- projection-->
+    <script src="app/projection/projectionController.js"></script>
+    <script src="app/projection/generationProjectionController.js"></script>
+
+    <!-- travelTime-->
+    <script src="app/travelTime/travelTimeController.js"></script>
+
+    <!-- travelData matrix od-->
+    <script src="app/travelData/travelDataController.js"></script>
+
+    <!-- projection matrix od-->
+    <script src="app/travelData/projectionODMatrixController.js"></script>
+
+    <!-- service-->
+    <script src="app/service/zoningService.js"></script>
+    <script src="app/service/generationService.js"></script>
+    <script src="app/service/menuService.js"></script>
+    <script src="app/service/travelTimeService.js"></script>
+    <script src="app/service/travelDataService.js"></script>
+    <script src="app/service/utilService.js"></script>
+
+    <!-- leaflet-->
+    <script src="assets/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="assets/css/leaflet/leaflet.css" />
+
+    <link rel="stylesheet" href="assets/css/mic.css" />
+
+    <!-- treeview-->
+    <script src="app/directive/treeview/angular.treeview.js"></script>
+    <link rel="stylesheet" href="app/directive/treeview/css/angular.treeview.css" />
+
+</head>
+<body ng-app="mainApp" style="margin:0">
+<div ng-init="init()" ng-controller = "rootController">
+    <div id="contentView" class="main-content">
+        <div ng-include="'app/menu/menubar.html'"></div>
+        <div ng-include="'app/menu/menu.html'" style="float:left;padding-right:5px;border:1px; width:20%;"></div>
+        <div ng-view></div>
+    </div>
+</div>
+</body>
+<script>
+   $(document).foundation();
+</script>
+</html>

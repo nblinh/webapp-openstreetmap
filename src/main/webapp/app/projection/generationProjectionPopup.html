@@ -1,0 +1,78 @@
+<div id="myModal" class="reveal-modal" style="width:60%" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form data-abide style="padding-top: 0px;" ng-submit="generate()">
+
+        <fieldset>
+            <legend>Generation projection</legend>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Name</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <input type="text" ng-model="generationObject.name"
+                                   placeholder="Enter name projection calibration" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Zoning</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="generationObject.zoningId"  ng-change = "test()"
+                                    ng-options="key as zoning for (key, zoning) in zoningList"> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Population data</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="generationObject.zonalData"
+                                    ng-options="zonalData for zonalData in zonalDatas"> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Calibration parameters</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="generationObject.calibration"
+                                    ng-options="calibration for calibration in calibrations "> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Initial matrix</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="generationObject.travelData"
+                                    ng-options="travelData for travelData in travelDatas"> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </fieldset>
+
+        <div align="center" style="width: 100%;padding:0;margin:0;" >
+            <button style="margin:0;" class="button-save-admin button radius" type="submit">Generate</button>
+        </div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </form>
+</div>

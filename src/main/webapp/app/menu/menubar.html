@@ -1,0 +1,36 @@
+<div ng-controller="menubarController">
+<nav class="top-bar" data-topbar role="navigation">
+    <div class="top-bar-section"  style="z-index: 99999 !important;">
+        <ul class="left">
+            <li class="has-dropdown not-click">
+                <a href="">Generation</a>
+                <ul class="dropdown">
+                    <li><a href="" ng-click="projectGenCalibration()">Project genCalibration</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown not-click">
+                <a href="">Distribution</a>
+                <ul class="dropdown">
+                    <li><a href="" ng-click="projectODMatrix()">Project OD matrix</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown not-click">
+                <a href="">Modal Choice</a>
+                <ul class="dropdown">
+                    <li><a href="#">First link in dropdown</a></li>
+                    <li><a href="#">Active link in dropdown</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+<div ng-controller="generationProjectionController" ng-init="init()" ng-include="'app/projection/generationProjectionPopup.html'"></div>
+<div ng-controller="projectionODMatrixController" ng-init="init()" ng-include="'app/travelData/projectionODMatrixPopup.html'"></div>
+<!-- Message -->
+<div data-alert class="alert-box success_message radius" id="updateSucess" name="alert_message" style="display: none;">
+    Operation sucessful <a class="close">&times;</a>
+</div>
+<div data-alert class="alert-box success_message radius" id="updateFail" style="background-color: red;display: none;">
+    Operation failed <a class="close">&times;</a>
+</div>

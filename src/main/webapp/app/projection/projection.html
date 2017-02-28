@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+<div style="float:right; width:80%" ng-init="init()" >
+    <div>
+        <select style="width:150px;" ng-model="emissionAttraction" ng-options="ea for ea in emissionAttractionList"
+                ng-change="changeParam()"></select>
+        <select style="width:150px;" ng-model="purposeIndex" ng-options="idx as purpose for (idx, purpose) in purposes"
+                ng-change="changeParam()"></select>
+    </div>
+    <div style="height: 100%;" id="mapid"></div>
+</div>
+
+</body>
+</html>

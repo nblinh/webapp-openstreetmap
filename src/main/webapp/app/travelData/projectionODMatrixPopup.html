@@ -1,0 +1,99 @@
+<div id="projectionODMatrixModal" class="reveal-modal" style="width:80%" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form data-abide style="padding-top: 0px;" ng-submit="generate()">
+
+        <fieldset>
+            <legend>Demande projection OD Matrix</legend>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Name</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <input type="text" ng-model="projectionODMatrix.name"
+                                   placeholder="Enter name projection OD Matrix" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Original OD</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="projectionODMatrix.travelData"
+                                    ng-options="travelData for travelData in travelDatas"> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label class="right inline">Zoning</label>
+                        </div>
+                        <div class="large-8 columns">
+                            <select ng-model="projectionODMatrix.zoningId"  ng-change = "test()"
+                                    ng-options="key as zoning for (key, zoning) in zoningList"> </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="row large-6 columns">
+            <fieldset>
+                <legend>Generations</legend>
+                <div><label>
+                    <input type="radio" ng-model="projectionODMatrix.generation"
+                           name="generationType" value="originalOD">Use generations from original OD<br></label>
+                </div>
+                <div><label>
+                    <input type="radio" ng-model="projectionODMatrix.generation"
+                           name="generationType" value="projectedGeneration">Use projected generations</label>
+                </div>
+               <div class="row">
+                   <div  class="large-4 columns">
+                       <label for="projectionSelect" class="right inline">Projection</label>
+                   </div>
+                   <div  class="large-8 columns">
+                       <select id="projectionSelect" ng-model="projectionODMatrix.projection" ng-disabled='projectionODMatrix.generation=="originalOD"'
+                               ng-options="projection for projection in projections "> </select>
+                   </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="row large-6 columns">
+            <fieldset>
+                <legend>Distribution</legend>
+                <div class="row">
+                    <div  class="large-4 columns">
+                        <label for="calibrationSelect" class="right inline">Calibration</label>
+                    </div>
+                    <div  class="large-8 columns">
+                        <select id="calibrationSelect" ng-model="projectionODMatrix.calibration"
+                                ng-options="calibration for calibration in calibrations "> </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div  class="large-4 columns">
+                        <label for="utilitySelect" class="right inline">Utility formulation</label>
+                    </div>
+                    <div  class="large-8 columns">
+                        <select id="utilitySelect" ng-model="projectionODMatrix.utility"
+                                ng-options="utility for utility in utilities "> </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div align="center"  class="large-12 columns">
+            <button style="margin:0;" class="button-save-admin button radius" type="submit">OK</button>
+        </div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </form>
+</div>

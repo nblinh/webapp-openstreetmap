@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <!--xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           -->
+  <display-name>Archetype Created Web Application</display-name>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <!--  <servlet>
+      <servlet-name>jersey-serlvet</servlet-name>
+      <servlet-class>
+        com.sun.jersey.spi.container.servlet.ServletContainer
+      </servlet-class>
+      <init-param>
+        <param-name>com.sun.jersey.config.property.packages</param-name>
+        <param-value>fr.systemx.mic.resource</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+    </servlet>-->
+  <!--<context-param>
+    <param-name>resteasy.scan</param-name>
+    <param-value>true</param-value>
+  </context-param>-->
+
+  <context-param>
+    <param-name>resteasy.servlet.mapping.prefix</param-name>
+    <param-value>/rest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.resources</param-name>
+    <param-value>
+      fr.systemx.mic.resource.zoning.ZoningResourceImpl, fr.systemx.mic.resource.generation.GenerationResourceImpl,
+      fr.systemx.mic.resource.common.CommonResourceImpl, fr.systemx.mic.resource.HelloWorldService,
+      fr.systemx.mic.resource.travelTime.TravelTimeResourceImpl, fr.systemx.mic.resource.travelData.TravelDataResourceImpl,
+      com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON
+    </param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.providers</param-name>
+    <param-value>
+      <!--com.wordnik.swagger.jaxrs.json.JacksonJsonProvider,-->
+      com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider,
+      com.wordnik.swagger.jaxrs.listing.ResourceListingProvider,
+    </param-value>
+  </context-param>
+  <context-param>
+    <param-name>resteasy.use.builtin.providers</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Resteasy</servlet-name>
+    <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>InitializationServlet</servlet-name>
+    <servlet-class>fr.systemx.mic.servlet.InitializationServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Resteasy</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
